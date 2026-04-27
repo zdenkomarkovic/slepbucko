@@ -1,21 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Strict mode za React - hvata potencijalne probleme ranije
   reactStrictMode: true,
+  poweredByHeader: false,
+  compress: true,
 
-  // Optimizacija slika - dodaj domene po potrebi
   images: {
-    remotePatterns: [
-      // Primer:
-      // {
-      //   protocol: "https",
-      //   hostname: "example.com",
-      // },
-    ],
+    remotePatterns: [],
+    formats: ["image/avif", "image/webp"],
   },
 
-  // Headers za bolju sigurnost
   async headers() {
     return [
       {
@@ -25,6 +19,13 @@ const nextConfig: NextConfig = {
           { key: "X-Frame-Options", value: "DENY" },
           { key: "X-XSS-Protection", value: "1; mode=block" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+        ],
+      },
+      {
+        source: "/(.*)\\.(jpg|jpeg|png|gif|ico|svg|webp|avif|woff2|woff|ttf)",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
         ],
       },
     ];
