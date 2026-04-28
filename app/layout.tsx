@@ -255,6 +255,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Script id="google-ads" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'AW-17854466254');`}
         </Script>
+        <Script id="gtag-conversion" strategy="afterInteractive">
+          {`function gtag_report_conversion(url){var callback=function(){if(typeof(url)!='undefined'){window.location=url;}};gtag('event','conversion',{'send_to':'AW-17854466254/HWjZCIm8h6QcEM6R1sFC','value':1.0,'currency':'USD','event_callback':callback});return false;}`}
+        </Script>
       </body>
     </html>
   );

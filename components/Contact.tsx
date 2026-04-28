@@ -1,4 +1,5 @@
-import { PHONE, PHONE_DISPLAY, ADDRESS } from "@/lib/constants";
+import { PHONE_DISPLAY, ADDRESS } from "@/lib/constants";
+import PhoneLink from "@/components/PhoneLink";
 
 export default function Contact() {
   return (
@@ -13,10 +14,7 @@ export default function Contact() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-12">
-          <a
-            href={`tel:${PHONE}`}
-            className="group bg-amber-500 hover:bg-amber-600 rounded-2xl p-8 text-center transition-colors shadow-lg"
-          >
+          <PhoneLink className="group bg-amber-500 hover:bg-amber-600 rounded-2xl p-8 text-center transition-colors shadow-lg">
             <div className="w-16 h-16 bg-black/10 rounded-full flex items-center justify-center mx-auto mb-4">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
@@ -24,7 +22,7 @@ export default function Contact() {
             </div>
             <div className="font-bold text-black text-xl mb-1">{PHONE_DISPLAY}</div>
             <div className="text-black/70 text-sm">Pozovite odmah · 24/7</div>
-          </a>
+          </PhoneLink>
 
           <div className="bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100">
             <div className="w-16 h-16 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -57,15 +55,12 @@ export default function Contact() {
               Ne čekajte — pozovite nas odmah. Brzo stižemo na vašu lokaciju i brinemo se za
               bezbedno šlepanje vašeg vozila.
             </p>
-            <a
-              href={`tel:${PHONE}`}
-              className="inline-flex items-center gap-3 bg-amber-500 hover:bg-amber-600 text-black font-extrabold text-2xl px-8 py-4 rounded-xl transition-colors self-start"
-            >
+            <PhoneLink className="inline-flex items-center gap-3 bg-amber-500 hover:bg-amber-600 text-black font-extrabold text-2xl px-8 py-4 rounded-xl transition-colors self-start">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
               </svg>
               {PHONE_DISPLAY}
-            </a>
+            </PhoneLink>
           </div>
           <div className="h-64 md:h-auto">
             <iframe
